@@ -44,7 +44,7 @@ class PostsManager extends Dbase
         $parameters = array(':posts_ID' => $postsId);
         $query->execute($parameters);
         $result = $query->fetch();
-        var_dump($result);
+        //var_dump($result);
          return new Posts($result);
    }
 
