@@ -22,8 +22,9 @@ class View
     /**
      *
      */
-    public function render()
+    public function render($params = array())
     {
+        extract($params);
         ob_start();
         require VIEW.$this->template.".php";
 

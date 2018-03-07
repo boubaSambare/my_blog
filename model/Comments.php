@@ -28,45 +28,49 @@ class Comments
 	}
 	public function getCommentsId ()
 	{
-		return this->_commentsId;
+		return $this->_commentsId;
 	}
 	public function getCommentsContent ()
 	{
-		return this->_commentsContent;
+		return $this->_commentsContent;
 	}
 	public function getCommentAuthorsName ()
 	{
-		return this->_commentsAuthorsName;
+		return $this->_commentsAuthorsName;
 	}
 	public function getCommentsDate ()
 	{
-		return this->_commentsDate;
+		return $this->_commentsDate;
 	}
 	public function getCommentsPostsId ()
 	{
-		return this->_commentsPostsId;
+		return $this->_commentsPostsId;
 	}
-	public function setCommentsId($commentsId)
+	public function setComments_ID($commentsId)
 	{
 		$commentsId = (int) $commentsId;
-		this->_commentsId = $commentsId;
+		$this->_commentsId = $commentsId;
 	}
-	public function setCommentsContent($commentsContent)
+	public function setComments_content($commentsContent)
 	{
 		if (is_string($commentsContent)) 
 		{
-			this->_commentsContent = $commentsContent;
+			$this->_commentsContent = $commentsContent;
 		}
 	}
-	public function setCommentAuthorsName($CommentAuthorsName)
+	public function setComments_authors_name($CommentAuthorsName)
 	{
 		if (is_string($CommentAuthorsName)) 
 		{
-			this->_commentsAuthorsName = $CommentAuthorsName;
+			$this->_commentsAuthorsName = $CommentAuthorsName;
 		}
 	}
-	public function setCommentsDate($commentsDate)
+	public function setComments_date($commentsDate)
 	{
-		this->_commentsDate = $commentsDate;
+		$this->_commentsDate = $commentsDate;
+	}
+    public function setComments_posts_ID($commentsPostsId)
+    {
+        $this->_commentsPostsId = $commentsPostsId;
 	}
 }

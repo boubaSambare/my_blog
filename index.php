@@ -1,5 +1,6 @@
 <?php
 require "config.php";
 AutoloadClass::register();
-$post = new Routeur();
+$request = $_GET["k"];
+$post = new Routeur($request);
 $post->render();

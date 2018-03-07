@@ -3,21 +3,21 @@
       <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8">
+        <div class="col-lg-12">
 
           <!-- Title -->
-          <h1 class="mt-4">Post Title</h1>
+          <h1 class="mt-4"><?=  $postt->getPostsTitle()?></h1>
 
           <!-- Author -->
           <p class="lead">
-            by
-            <a href="#">Start Bootstrap</a>
+            par
+            <a href="#">Jean Forteroche</a>
           </p>
 
           <hr>
 
           <!-- Date/Time -->
-          <p>Posted on January 1, 2018 at 12:00 PM</p>
+          <p>Poster en   <?=$postt-> getPostsDate()?></p>
 
           <hr>
 
@@ -27,7 +27,7 @@
           <hr>
 
           <!-- Post Content -->
-          
+          <p> <?= $postt->getPostsContent()?></p>
           <hr>
 
           <!-- Comments Form -->
@@ -44,18 +44,16 @@
           </div>
 
           <!-- Single Comment -->
+
           <div class="media mb-4">
             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
             <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              <h5 class="mt-0"><?= $comment->getCommentAuthorsName()?></h5>
+                <?= $comment->getCommentsContent ()?>
             </div>
           </div>
+        </div>
+      </div>
 
-           
+</div>
 
-        
-    </div>
-  </div>
-
-</div>     

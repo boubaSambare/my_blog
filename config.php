@@ -17,9 +17,11 @@ class AutoloadClass
 
 		define('HOST', $host."my_blog/");
 		define('ROOT', $root."my_blog/");
+		define('ROOTS', $root."my_blog/");
 		define('CLASSES', ROOT."model/");
-		define("VIEW", ROOT."view/");
-		define("CONTROLER", ROOT."controller/");
+		define("VIEW", ROOTS."view/");
+		define("CONTROLER", ROOTS."controller/");
+		define("PUBLIC", ROOT."public/");
 
 
 	}

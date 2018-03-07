@@ -11,10 +11,10 @@
     <title><?=$title?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../public/css/blog-post.css" rel="stylesheet">
+    <link  href="public/css/blog-post.css" rel="stylesheet">
 
   </head>
 
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="http://localhost/my_blog/home.html">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -45,7 +45,7 @@
         </div>
       </div>
     </nav>
-    <?= echo $content ?>
+    <?=  $content ?>
     
     <!--Footer -->
     <footer class="py-5 bg-dark">
@@ -56,8 +56,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="../public/vendor/jquery/jquery.min.js"></script>
-    <script src="../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="public/vendor/jquery/jquery.min.js"></script>
+    <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 
