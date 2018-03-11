@@ -25,11 +25,18 @@ class View
     public function render($params = array())
     {
         extract($params);
+        //var_dump($params);
         ob_start();
         require VIEW.$this->template.".php";
 
         $content = ob_get_clean();
         require VIEW."template.php";
+    }
+
+    public function redirect($paths)
+    {
+        header("location:".HOST.$paths);
+        exit;
     }
 
 

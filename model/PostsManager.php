@@ -2,8 +2,7 @@
 /**
 * 
 */
-require 'Dbase.php';
-require 'Posts.php';
+
 class PostsManager extends Dbase
 {
 	 

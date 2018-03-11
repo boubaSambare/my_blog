@@ -10,11 +10,16 @@ class Routeur
 {
     protected $request;
     protected $paths = array(
-                                "home.html" => array('controller' =>'Front','action' => 'homeFront'),
+                                "" => array('controller' =>'Front','action' => 'homeFront'),
                                 "post.html" => array('controller' =>'Front','action' => 'singlePost'),
-                                "edit_post.html" => array('controller' =>'Front','action' => 'editPost'),
-                                "comment.html" => array('controller' =>'Admin','action' => 'editComment'),
-                                "delete.html" => array('controller' =>'Admin','action' => 'delete')
+                                "edit.html" => array('controller' =>'Front','action' => 'editPost'),
+                                "edit_comment.html" => array('controller' =>'Front','action' => 'editComment'),
+                                "delete.html" => array('controller' =>'Admin','action' => 'delete'),
+                                "admin.html" => array('controller' =>'Admin','action' => 'adminFront'),
+                                "add_post.html" => array('controller' =>'Admin','action' => 'addPost'),
+                                "add.html" => array('controller' =>'Admin','action' => 'add'),
+                                "edit_post.html" => array('controller' =>'Admin','action' => 'updatePost'),
+                                "update.html" => array('controller' =>'Admin','action' => 'postUpdate'),
                             );
     /**
      * Routeur constructor.
@@ -52,6 +57,7 @@ class Routeur
     public function render()
     {
         require "./controller/Front.php";
+        require "./controller/Admin.php";
         $request = $this->getPathName();
         $params = $this->getParams();
         if (key_exists($request,$this->paths))

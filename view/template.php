@@ -8,13 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?=$title?></title>
+    <title>Billet de retour pour Alaska</title>
 
     <!-- Bootstrap core CSS -->
-    <link type="text/css" href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="<?= WEB ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- tinymce-->
+      <script src="<?=WEB?>tinymce/tinymce.min.js "></script>
 
     <!-- Custom styles for this template -->
-    <link  href="public/css/blog-post.css" rel="stylesheet">
+    <link  href="<?= WEB ?>css/blog-post.css" rel="stylesheet">
 
   </head>
 
@@ -56,8 +58,9 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="public/vendor/jquery/jquery.min.js"></script>
-    <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= WEB ?>vendor/jquery/jquery.min.js"></script>
+    <script src="<?= WEB ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= WEB ?>js/tinymce.js"></script>
 
   </body>
 

@@ -28,13 +28,12 @@ class Front
 
     }
 
-    public function readComment($params)
+    public function readComment($params= null)
     {
         //extract($params);
         $comments = new CommentsManager();
-        $comment= $comments->readCommentsByPost(1);
-        var_dump($comment);
-        return $comment;
+        //var_dump($comment);
+        return $comments;
     }
 
     public function singlePost($params)
@@ -43,10 +42,23 @@ class Front
         extract($params);
         $post = new PostsManager();
         $postt=$post->readById($id);
-        $commentt = $this->readComment($id);
+        $commentts = $this->readComment();
+        $commentt = $commentts->readCommentsByPost($postt->getPostsId());
+        //var_dump($commentt);
         //var_dump($postt);
         $view = new View("single_post");
         $view->render(array("postt"=>$postt,"commentt"=>$commentt));
+
+    }
+
+    public function editComment()
+    {
+        $values = $_POST["values"];
+        $comment = new Comments($values);
+        $manager = new CommentsManager();
+        $manager->createComments($comment);
+        $view = new View("single_post");
+        $view->redirect("post.html/id/".$comment->getCommentsPostsId());
 
     }
 }

@@ -12,7 +12,7 @@ class AutoloadClass
     public static function register()
 	{
 		spl_autoload_register( array(__CLASS__  , "autoload"));
-		$host = "http//".$_SERVER ["HTTP_HOST"]."/";
+		$host = "http://".$_SERVER ["HTTP_HOST"]."/";
 		$root = $_SERVER["DOCUMENT_ROOT"]."/";
 
 		define('HOST', $host."my_blog/");
@@ -21,8 +21,7 @@ class AutoloadClass
 		define('CLASSES', ROOT."model/");
 		define("VIEW", ROOTS."view/");
 		define("CONTROLER", ROOTS."controller/");
-		define("PUBLIC", ROOT."public/");
-
+		define('WEB', HOST."public/");
 
 	}
 

@@ -34,10 +34,14 @@
           <div class="card my-4">
             <h5 class="card-header">Laisser un commentaire:</h5>
             <div class="card-body">
-              <form>
+              <form action="<?= HOST ?>edit_comment.html" method="post">
                 <div class="form-group">
-                  <textarea class="form-control" rows="3"></textarea>
+                    <span>Entrez votre nom</span>
+                    <p><input type="hidden" name="values[comments_posts_ID]" value="<?= $postt->getPostsId()?>" class="form-control"></p>
+                    <p><input type="text" name="values[comments_authors_name]" class="form-control"></p>
+                  <textarea class="form-control" name="values[comments_content]" rows="3"></textarea>
                 </div>
+
                 <button type="submit" class="btn btn-primary">Poster</button>
               </form>
             </div>
@@ -45,6 +49,7 @@
 
           <!-- Single Comment -->
 
+            <?php if (!empty($commentt)) foreach ($commentt as $comment):  ?>
           <div class="media mb-4">
             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
             <div class="media-body">
@@ -52,6 +57,7 @@
                 <?= $comment->getCommentsContent ()?>
             </div>
           </div>
+            <?php endforeach; ?>
         </div>
       </div>
 

@@ -8,7 +8,7 @@ class Posts
 	private	$_postsTitle;
 	private	$_postsContent;
 	private	$_postsDate;
-	public function __construct (array $data= [])
+	public function __construct (array $data)
 	{
 		$this->hydrate($data);
 	}

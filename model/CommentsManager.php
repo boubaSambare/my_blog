@@ -7,11 +7,10 @@ class CommentsManager extends Dbase
 
     public function createComments(Comments $comments)
     {
-        $req =$this->bd->prepare("INSERT INTO comments(comments_content, comments_authors_name, 	comments_date,comments_posts_ID) values (:comments_content,:comments_authors_name,	comments_date, comments_posts_ID)");
-        $req->excute(array(
-                "posts_title"=>$comments->getCommentsContent (),
+        $req =$this->bd->prepare("INSERT INTO comments(comments_content, comments_authors_name, 	comments_date,comments_posts_ID) values (:comments_content,:comments_authors_name,NOW(), :comments_posts_ID)");
+        $req->execute(array(
+                "comments_content"=>$comments->getCommentsContent (),
                 "comments_authors_name"=>$comments->getCommentAuthorsName(),
-                "comments_date"=>$comments->getCommentsDate(),
                 "comments_posts_ID"=>$comments->getCommentsPostsId()
             )
         );
