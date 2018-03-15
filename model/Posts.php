@@ -8,6 +8,7 @@ class Posts
 	private	$_postsTitle;
 	private	$_postsContent;
 	private	$_postsDate;
+	private $_posts_media;
 	public function __construct (array $data)
 	{
 		$this->hydrate($data);
@@ -40,6 +41,14 @@ class Posts
 	{
 		return $this->_postsDate;
 	}
+
+    /**
+     * @return mixed
+     */
+    public function getPostsMedia()
+    {
+        return $this->_posts_media;
+    }
 	public function setPosts_ID($postsId)
 	{
 		$postsId = (int) $postsId;
@@ -63,4 +72,15 @@ class Posts
 	{
 		$this->_postsDate = $postsDate;
 	}
+
+    /**
+     * @param mixed $posts_media
+     */
+    public function setPosts_media($posts_media)
+    {
+        if (is_string($posts_media))
+        {
+        $this->_posts_media = $posts_media;
+        }
+    }
 }

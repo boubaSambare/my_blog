@@ -9,10 +9,13 @@ class PostsManager extends Dbase
 	
    public function createPosts(Posts $post)
    {
-   			$req = $this->bd->prepare("INSERT INTO posts(posts_title, posts_content, posts_date) values (:posts_title,:posts_content,NOW())");
+   			$req = $this->bd->prepare("INSERT INTO posts(posts_title, posts_content, posts_date,posts_media)
+                                              values (:posts_title,:posts_content,NOW(),:posts_media)"
+                                      );
    			$req->execute(array(
    								"posts_title"=>$post->getPostsTitle(),
    								"posts_content"=>$post->getPostsContent(),
+                                "posts_media"=> $post->getPostsMedia(),
    							  )
    						);
    			return $req;
@@ -38,7 +41,7 @@ class PostsManager extends Dbase
 
    public function readById($postsId)
    {
-   		$sql = "SELECT posts_id, posts_title, posts_content, posts_date FROM posts WHERE posts_ID = :posts_ID ";
+   		$sql = "SELECT posts_id, posts_title, posts_content,posts_media, posts_date FROM posts WHERE posts_ID = :posts_ID ";
         $query = $this->bd->prepare($sql);
         $parameters = array(':posts_ID' => $postsId);
         $query->execute($parameters);
@@ -60,8 +63,8 @@ class PostsManager extends Dbase
    */
    public function udaptePost(Posts $posts)
    {
-   		$sql = "UPDATE Posts SET posts_title =:posts_title, posts_content=:posts_content WHERE posts_id=:posts_id";
-   		$query = $this->bd->prepare($sql);
+   		$sql = "UPDATE posts SET posts_title =:posts_title, posts_content=:posts_content WHERE posts_id=:posts_id";
+        $query = $this->bd->prepare($sql);
    		$query ->bindValue(':posts_title', $posts->getPostsTitle(), PDO::PARAM_STR);
         $query ->bindValue(':posts_content', $posts->getPostsContent(), PDO::PARAM_STR);
         $query ->bindValue(':posts_id', $posts->getPostsId(), PDO::PARAM_INT);

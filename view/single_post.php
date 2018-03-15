@@ -22,7 +22,7 @@
           <hr>
 
           <!-- Preview Image -->
-          <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+          <img class="img-fluid rounded" src="<?=WEB?>medias/<?= $postt->getPostsMedia()?>" alt="">
 
           <hr>
 
@@ -37,9 +37,9 @@
               <form action="<?= HOST ?>edit_comment.html" method="post">
                 <div class="form-group">
                     <span>Entrez votre nom</span>
-                    <p><input type="hidden" name="values[comments_posts_ID]" value="<?= $postt->getPostsId()?>" class="form-control"></p>
-                    <p><input type="text" name="values[comments_authors_name]" class="form-control"></p>
-                  <textarea class="form-control" name="values[comments_content]" rows="3"></textarea>
+                    <p><input type="hidden" name="values[comments_posts_ID]" value="<?= $postt->getPostsId()?>" class="form-control" ></p>
+                    <p><input type="text" name="values[comments_authors_name]" class="form-control" required></p>
+                  <textarea class="form-control" name="values[comments_content]" rows="3" required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Poster</button>
@@ -48,16 +48,22 @@
           </div>
 
           <!-- Single Comment -->
-
-            <?php if (!empty($commentt)) foreach ($commentt as $comment):  ?>
+            <?php  if (!empty($commentt)):?>
+            <?php  foreach ($commentt as $comment):  ?>
           <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
             <div class="media-body">
               <h5 class="mt-0"><?= $comment->getCommentAuthorsName()?></h5>
                 <?= $comment->getCommentsContent ()?>
+                <form action="<?= HOST ?>signale_comment.html" method="get">
+                    <input type="hidden" name="values[comments_id]" value="<?= $comment->getCommentsId()?>" class="form-control">
+                    <input type="hidden" name="values[posts_id]" value="<?= $comment->getCommentsPostsId()?>">
+                    <input type="hidden" name="values[comments_signal]" value="<?= SIGNALED?>" class="form-control">
+               <div ><input type="submit" value="signaler"> </div>
+                </form>
             </div>
           </div>
             <?php endforeach; ?>
+            <?php endif; ?>
         </div>
       </div>
 

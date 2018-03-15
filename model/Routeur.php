@@ -20,6 +20,10 @@ class Routeur
                                 "add.html" => array('controller' =>'Admin','action' => 'add'),
                                 "edit_post.html" => array('controller' =>'Admin','action' => 'updatePost'),
                                 "update.html" => array('controller' =>'Admin','action' => 'postUpdate'),
+                                "signale_comment.html" => array('controller' =>'Front','action' => 'signalComments'),
+                                "moderer.html" => array('controller' =>'Admin','action' => 'moderateComments'),
+                                "single_comment.html" => array('controller' =>'Admin','action' => 'readSingleComment'),
+                                "delete_comment.html" => array('controller' =>'Admin','action' => 'deleteComment'),
                             );
     /**
      * Routeur constructor.

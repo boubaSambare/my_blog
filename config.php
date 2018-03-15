@@ -22,6 +22,8 @@ class AutoloadClass
 		define("VIEW", ROOTS."view/");
 		define("CONTROLER", ROOTS."controller/");
 		define('WEB', HOST."public/");
+		define('SIGNALED',"signaled");
+		define('NULLL',"NULL");
 
 	}
 

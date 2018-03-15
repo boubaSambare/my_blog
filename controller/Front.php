@@ -61,4 +61,19 @@ class Front
         $view->redirect("post.html/id/".$comment->getCommentsPostsId());
 
     }
+
+    public function signalComments()
+    {
+        $value = $_GET["values"];
+        var_dump($value);
+        $comment= new Comments($value);
+        var_dump($comment);
+        $commentsSignal= new CommentsManager();
+        $commentsSignal->signalComments($comment);
+        $view = new View("single_post");
+        $view->redirect("post.html/id/".$value["posts_id"]);
+
+    }
+
+
 }

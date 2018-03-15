@@ -10,6 +10,7 @@ class Comments
 	private	$_commentsAuthorsName;
 	private	$_commentsDate;
 	private $_commentsPostsId;
+	private $_comments_signal;
 	public function __construct (array $data)
 	{
 		$this->hydrate($data);
@@ -46,6 +47,14 @@ class Comments
 	{
 		return $this->_commentsPostsId;
 	}
+
+    /**
+     * @return mixed
+     */
+    public function getCommentsSignal()
+    {
+        return $this->_comments_signal;
+    }
 	public function setComments_ID($commentsId)
 	{
 		$commentsId = (int) $commentsId;
@@ -73,4 +82,15 @@ class Comments
     {
         $this->_commentsPostsId = $commentsPostsId;
 	}
+
+    /**
+     * @param mixed $comments_signal
+     */
+    public function setComments_signal($comments_signal)
+    {
+        if (is_string($comments_signal))
+        {
+        $this->_comments_signal = $comments_signal;
+        }
+    }
 }
