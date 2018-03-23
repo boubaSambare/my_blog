@@ -26,45 +26,45 @@ class Authors
 	}
 	public function getAuthorsId ()
 	{
-		return this->_authorsId;
+		return $this->_authorsId;
 	}
 	public function getAuthorsName ()
 	{
-		return this->_authorsName;
+		return $this->_authorsName;
 	}
 	public function getAuthorsLogin ()
 	{
-		return this->_authorsLogin;
+		return $this->_authorsLogin;
 	}
 	public function getAuthorsPassword ()
 	{
-		return this->_authorsPassword;
+		return $this->_authorsPassword;
 	}
 	
-	public function setAuthorsId($authorsId)
+	public function setAuthors_ID($authorsId)
 	{
 		$authorsId = (int) $authorsId;
-		this->_authorsId = $authorsId;
+		$this->_authorsId = $authorsId;
 	}
-	public function setAuthorsName($authorsName)
+	public function setAuthors_Name($authorsName)
 	{
 		if (is_string($authorsName)) 
 		{
-			this->_authorsName = $authorsName;
+			$this->_authorsName = $authorsName;
 		}
 	}
-	public function setAuthorsLogin($authorsLogin)
+	public function setAuthors_login($authorsLogin)
 	{
 		if (is_string($authorsLogin)) 
 		{
-			this->_authorsLogin = $authorsLogin;
+			$this->_authorsLogin = $authorsLogin;
 		}
 	}
-	public function setAuthorsPassword($authorsPassword)
+	public function setAuthors_password($authorsPassword)
 	{
 		$lenghPassword = strlen($authorsPassword);
-		if (is_string($authorsPassword) AND $lenghPassword <= 20) {
-			this->_authorsPassword = $authorsPassword;
+		if (is_string($authorsPassword) AND $lenghPassword <= 100) {
+			$this->_authorsPassword = $authorsPassword;
 		}
 		
 	}

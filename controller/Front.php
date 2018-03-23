@@ -75,5 +75,46 @@ class Front
 
     }
 
+    public function userLogin()
+    {
+        if(isset($_POST['username']) AND isset($_POST['password']) )
+        {
+            $name = $_POST['username'];
+            $password = $_POST['password'];
+            $name = stripcslashes($name);
+            $password = stripcslashes($password);
+            $password = sha1($password);
+          //  var_dump($password);
+            $manager = new AuthorsManager();
+            $islog = $manager->isLogged($name,$password);
+            var_dump($islog);
+            if ($islog)
+            {
+                $this->session()->write("login",$islog);
+                 $view = new View("admin/posts");
+                 $view->redirect("admin.html");
+            }else{
+                $view = new View("admin/posts");
+                $view->redirect("conextion.html");
+            }
+
+
+        }
+    }
+
+    public function session()
+    {
+        $session = new Session();
+        return $session;
+    }
+
+    public function conextion()
+    {
+        $view = new View("login");
+        $view->render();
+    }
+
+
+
 
 }

@@ -15,7 +15,7 @@
           <!-- Blog Post -->
 
           <div class="card mb-4">
-            <img class="card-img-top" src="<?=WEB?>medias/<?= $postt->getPostsMedia()?>" alt="Card image cap">
+            <img class="card-img-top " src="<?=WEB?>medias/<?= $postt->getPostsMedia()?>" alt="Card image cap">
             <div class="card-body">
               <h2 class="card-title"><?=  $postt->getPostsTitle()?></h2>
               <p class="card-text"><?= $postt->getPostsContent()?></p>

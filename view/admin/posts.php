@@ -1,5 +1,8 @@
 
 <h2> Bienvenue dans l'admistration </h2>
+
+
+
     <div class="container">
     <p>Liste de tous les chapitres</p>
     <div class="flex-row"> <a  href="<?=HOST?>add.html" class="btn" >Ajouter un chapitre</a></div>
@@ -18,7 +21,7 @@
         <tr>
             <th scope="row"><?= $postt->getPostsTitle()?></th>
             <td><a href="<?=HOST?>edit_post.html/id/<?= $postt->getPostsId()?>">Modifier</a></td>
-            <td ><div class="btn-danger"><a href="<?=HOST?>delete.html/id/<?= $postt->getPostsId()?>">Suprimer</a></div></td>
+            <td ><div class="btn-danger"><a href="<?=HOST?>delete.html/id/<?= $postt->getPostsId()?>"  id="delete">Suprimer</a></div></td>
 
         </tr>
         <?php endforeach; ?>

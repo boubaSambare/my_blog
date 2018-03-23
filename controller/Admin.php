@@ -8,6 +8,15 @@
 
 class Admin
 {
+    public function __construct()
+    {
+      session_start();
+        if (!$_SESSION['login'])
+        {
+            $view = new View("login");
+            $view->redirect("conextion.html");
+        }
+    }
     public function adminFront($params)
     {
         $post = new PostsManager();
@@ -53,10 +62,16 @@ class Admin
     public function delete($params)
     {
         extract($params);
+        $manager = new Session();
+        $manager->setFlash("Le chapitre a bien etais suprimer");
+        $message = $manager->flash();
         $post= new PostsManager();
         $post->deletePosts($id);
-        $view = new View("admin/admin");
-        $view->redirect("admin.html");
+        $postts=$post->readAllPosts();
+        $comment = $this->readCommentsSignale();
+        $view = new View("admin/posts");
+        //$view->redirect("admin.html");
+        $view->render(array('message'=>$message,"postts"=>$postts,"comment"=>$comment));
     }
 
     public function updatePost($params)
@@ -112,5 +127,12 @@ class Admin
         $comment->deleteComments($id);
         $view = new View("admin/admin");
         $view->redirect("admin.html");
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['login']);
+        $view = new View("readPost");
+        $view->redirect("/");
     }
 }

@@ -25,7 +25,7 @@ class PostsManager extends Dbase
 
    public function readAllPosts()
    {
-   			$query = $this->bd->prepare("SELECT * FROM posts");
+   			$query = $this->bd->prepare("SELECT * FROM posts ORDER BY posts_ID  DESC ");
    			$query->execute();
 
    		    $result= $query->fetchAll();

@@ -12,6 +12,8 @@ class Routeur
     protected $paths = array(
                                 "" => array('controller' =>'Front','action' => 'homeFront'),
                                 "post.html" => array('controller' =>'Front','action' => 'singlePost'),
+                                "login.html" => array('controller' =>'Front','action' => 'userLogin'),
+                                "conextion.html" => array('controller' =>'Front','action' => 'conextion'),
                                 "edit.html" => array('controller' =>'Front','action' => 'editPost'),
                                 "edit_comment.html" => array('controller' =>'Front','action' => 'editComment'),
                                 "delete.html" => array('controller' =>'Admin','action' => 'delete'),
@@ -24,6 +26,7 @@ class Routeur
                                 "moderer.html" => array('controller' =>'Admin','action' => 'moderateComments'),
                                 "single_comment.html" => array('controller' =>'Admin','action' => 'readSingleComment'),
                                 "delete_comment.html" => array('controller' =>'Admin','action' => 'deleteComment'),
+                                "logout.html" => array('controller' =>'Admin','action' => 'logout'),
                             );
     /**
      * Routeur constructor.

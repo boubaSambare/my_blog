@@ -24,6 +24,7 @@ class CommentsManager extends Dbase
         $query = $this->bd->prepare("SELECT * FROM comments WHERE comments_posts_ID= :comments_posts_ID");
         $parameters = array(':comments_posts_ID' => $postsId);
         $query->execute($parameters);
+        $comments = array();
         while ($result = $query->fetch(PDO::FETCH_ASSOC))
         {
             $comment = new Comments($result);
