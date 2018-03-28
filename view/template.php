@@ -37,10 +37,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= HOST?>logout.html">Episodes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= HOST?>conextion.html">Connexion</a>
+                    <?php if (!empty($logout) ) {  echo $logout; }else{ $logout = null;} ?>
                 </li>
 
             </ul>
@@ -54,6 +51,7 @@
 <footer class="py-5 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Jean Forteroche 2018</p>
+        <p class="m-0 text-center text-white"> Sambare Aboubacar </p>
     </div>
     <!-- /.container -->
 </footer>

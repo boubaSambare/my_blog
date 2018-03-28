@@ -9,6 +9,8 @@
 class View
 {
     protected $template;
+    const DECONEXTION =  '<a class="nav-link" href="'.HOST.'logout.html">Logout</a>';
+    const CONEXTION =  '<a class="nav-link" href="'.HOST.'conextion.html">Login</a>';
 
     /**
      * View constructor.
@@ -22,7 +24,7 @@ class View
     /**
      *
      */
-    public function render($params = array())
+    public  function render($params = array())
     {
         extract($params);
         //var_dump($params);
@@ -33,7 +35,10 @@ class View
         require VIEW."template.php";
     }
 
-    public function redirect($paths)
+    /**
+     * @param $paths
+     */
+    public static function redirect($paths)
     {
         header("location:".HOST.$paths);
         exit;

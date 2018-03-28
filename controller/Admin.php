@@ -8,13 +8,23 @@
 
 class Admin
 {
+    /**
+     * Admin constructor.
+     */
     public function __construct()
     {
-      session_start();
-        if (!$_SESSION['login'])
+
+
+            session_start() ;
+
+        if (!isset($_SESSION['logins']))
         {
+            Session::setFlash("Veillez vous conecter d'abord","alert-danger");
+            $message = Session::flash();
             $view = new View("login");
-            $view->redirect("conextion.html");
+            $view->render(array("message"=>$message));
+            die();
+            //View::redirect("conextion.html");
         }
     }
     public function adminFront($params)
@@ -22,10 +32,10 @@ class Admin
         $post = new PostsManager();
         $postts=$post->readAllPosts();
         $comment = $this->readCommentsSignale();
-
+        $logout = View::DECONEXTION;
         //var_dump($postts);
         $view = new View("admin/posts");
-        $view->render(array("postts"=>$postts,"comment"=>$comment));
+        $view->render(array("postts"=>$postts,"comment"=>$comment,"logout"=>$logout));
 
     }
     public function addPost()
@@ -36,8 +46,7 @@ class Admin
         $post = new Posts($values);
         $manager = new PostsManager();
         $manager->createPosts($post);
-        $view = new View("admin/add_posts");
-        $view->redirect("admin.html");
+        View::redirect("admin.html");
 
     }
 
@@ -59,12 +68,14 @@ class Admin
         $addPost->render();
     }
 
+    /**
+     * @param $params
+     */
     public function delete($params)
     {
         extract($params);
-        $manager = new Session();
-        $manager->setFlash("Le chapitre a bien etais suprimer");
-        $message = $manager->flash();
+        Session::setFlash("Le chapitre a bien ètè suprimer");
+        $message = Session::flash();
         $post= new PostsManager();
         $post->deletePosts($id);
         $postts=$post->readAllPosts();
@@ -74,6 +85,9 @@ class Admin
         $view->render(array('message'=>$message,"postts"=>$postts,"comment"=>$comment));
     }
 
+    /**
+     * @param $params
+     */
     public function updatePost($params)
     {
         extract($params);
@@ -89,10 +103,13 @@ class Admin
         $post = new Posts($values);
         $posts = new PostsManager();
         $posts->udaptePost($post);
-        $view = new View("admin/admin");
-        $view->redirect("admin.html");
+        View::redirect("admin.html");
 
     }
+
+    /**
+     *
+     */
     public function moderateComments ()
     {
         $value= $_POST["values"];
@@ -100,10 +117,12 @@ class Admin
         $comment= new Comments($value);
         $commentsSignal= new CommentsManager();
         $commentsSignal->moderateComments($comment);
-        $view = new View("admin/admin");
-        $view->redirect("admin.html");
+        View::redirect("admin.html");
     }
 
+    /**
+     * @return array
+     */
     private function readCommentsSignale()
     {
         $manager = new CommentsManager();
@@ -111,6 +130,9 @@ class Admin
         return $commentSignaled;
     }
 
+    /**
+     * @param $params
+     */
     public function readSingleComment($params)
     {
         extract($params);
@@ -120,19 +142,28 @@ class Admin
         $view->render(array("comments"=>$comments));
     }
 
+    /**
+     * @param $params
+     */
     public function deleteComment($params)
     {
         extract($params);
-        $comment= new CommentsManager();
-        $comment->deleteComments($id);
-        $view = new View("admin/admin");
-        $view->redirect("admin.html");
+        Session::setFlash("Le commentaire a bien été suprimer");
+        $message = Session::flash();
+        $comments= new CommentsManager();
+        $comments->deleteComments($id);
+        $comment = $comments->readCommentsSignal();
+        $post= new PostsManager();
+        $postts=$post->readAllPosts();
+        $logout = View::DECONEXTION;
+        $view = new View("admin/posts");
+        $view->render(array('message'=>$message,"postts"=>$postts,"comment"=>$comment,"logout"=>$logout));
+        //View::redirect("admin.html");
     }
 
     public function logout()
     {
-        unset($_SESSION['login']);
-        $view = new View("readPost");
-        $view->redirect("/");
+        unset($_SESSION['logins']);
+       View::redirect("");
     }
 }

@@ -68,9 +68,16 @@ class Posts
 			$this->_postsContent = $postsContent;
 		}
 	}
-	public function setPosts_date($postsDate)
+
+    /**
+     * @param $postsDate
+     */
+    public function setPosts_date($postsDate)
 	{
-		$this->_postsDate = $postsDate;
+        setlocale(LC_ALL, 'fra');
+	    $time = strtotime($postsDate);
+	    $format = strftime( "%A %e %B %Y",$time);
+		$this->_postsDate =  $format;
 	}
 
     /**

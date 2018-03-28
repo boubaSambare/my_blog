@@ -23,8 +23,9 @@ class Front
         $post = new PostsManager();
         $postts=$post->readAllPosts();
         //var_dump($postts);
+        $logout = View::CONEXTION;
         $view = new View("readPost");
-        $view->render(array("postts"=>$postts));
+        $view->render(array("postts"=>$postts,"logout"=>$logout));
 
     }
 
@@ -87,15 +88,17 @@ class Front
           //  var_dump($password);
             $manager = new AuthorsManager();
             $islog = $manager->isLogged($name,$password);
-            var_dump($islog);
+            //var_dump($islog);
             if ($islog)
             {
-                $this->session()->write("login",$islog);
-                 $view = new View("admin/posts");
-                 $view->redirect("admin.html");
+                $this->session()->write("logins",$islog);
+                 View::redirect("admin.html");
             }else{
-                $view = new View("admin/posts");
-                $view->redirect("conextion.html");
+                Session::setFlash("Username ou mot de passe incorrect","alert-danger");
+                $message = Session::flash();
+                $view = new View("login");
+                $view->render(array("message"=>$message));
+                die();
             }
 
 

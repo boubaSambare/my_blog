@@ -1,6 +1,7 @@
 
 
  <!-- Page Content -->
+ <div class="img-thumbnail"></div>
     <div class="container">
         <?php foreach ($postts as $postt): ?>
 

@@ -1,5 +1,12 @@
 <div class="container">
-
+    <div class="row">
+    <div class="card m-auto col-12" style="width: 18rem;">
+        <img class="card-img-top" src="<?=WEB?>medias/login-alaska.png" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title align-items-center">Espace Reserver</h5>
+        </div>
+    </div>
+    </div>
     <div class="row">
         <div class="card m-auto col-12" >
         <form action="<?= HOST?>login.html" method="post">
@@ -15,6 +22,7 @@
         </form>
         </div>
     </div>
+
 </div>
 
 </div>

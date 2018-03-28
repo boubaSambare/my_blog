@@ -10,7 +10,7 @@ class Session
 {
     public function __construct()
     {
-        if (!session_start())
+        if (!$_SESSION)
         {
             session_start() ;
         }
@@ -20,7 +20,7 @@ class Session
      * @param null $message
      * @param string $type
      */
-    public function setFlash($message = null, $type= 'alert-success')
+    public static function setFlash($message = null, $type= 'alert-success')
     {
         $_SESSION['flash'] = array(
             'message' => $message,
@@ -31,7 +31,7 @@ class Session
     /**
      * @return string
      */
-    public function flash()
+    public static function flash()
     {
        if(isset($_SESSION['flash']['message']))
        {
