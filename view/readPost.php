@@ -1,7 +1,6 @@
 
 
  <!-- Page Content -->
- <div class="img-thumbnail"></div>
     <div class="container">
         <?php foreach ($postts as $postt): ?>
 
@@ -16,10 +15,12 @@
           <!-- Blog Post -->
 
           <div class="card mb-4">
-            <img class="card-img-top " src="<?=WEB?>medias/<?= $postt->getPostsMedia()?>" alt="Card image cap">
+              <div>
+            <img class="card-img-top " src="<?=WEB?>medias/<?= $postt->getPostsMedia()?>" height="300" alt="billet simple pour alaska">
+              </div>
             <div class="card-body">
               <h2 class="card-title"><?=  $postt->getPostsTitle()?></h2>
-              <p class="card-text"><?= $postt->getPostsContent()?></p>
+              <p class="card-text"><?= substr($postt->getPostsContent(),0,200)?></p>
               <a href="post.html/id/<?= $postt->getPostsId()?>" class="btn btn-primary">Continuer A Lire &rarr;</a>
             </div>
             <div class="card-footer text-muted">

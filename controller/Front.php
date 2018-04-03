@@ -94,7 +94,7 @@ class Front
                 $this->session()->write("logins",$islog);
                  View::redirect("admin.html");
             }else{
-                Session::setFlash("Username ou mot de passe incorrect","alert-danger");
+                Session::setFlash("nom d'utilisateur ou mot de passe incorrect","alert-danger");
                 $message = Session::flash();
                 $view = new View("login");
                 $view->render(array("message"=>$message));

@@ -19,12 +19,11 @@ class Admin
 
         if (!isset($_SESSION['logins']))
         {
-            Session::setFlash("Veillez vous conecter d'abord","alert-danger");
+            Session::setFlash("Veillez vous connecter s'il vous plait","alert-danger");
             $message = Session::flash();
             $view = new View("login");
             $view->render(array("message"=>$message));
             die();
-            //View::redirect("conextion.html");
         }
     }
     public function adminFront($params)
@@ -74,7 +73,7 @@ class Admin
     public function delete($params)
     {
         extract($params);
-        Session::setFlash("Le chapitre a bien ètè suprimer");
+        Session::setFlash("Le chapitre a bien été suprimer");
         $message = Session::flash();
         $post= new PostsManager();
         $post->deletePosts($id);
@@ -148,7 +147,7 @@ class Admin
     public function deleteComment($params)
     {
         extract($params);
-        Session::setFlash("Le commentaire a bien été suprimer");
+        Session::setFlash("Le commentaire a bien été supprimer");
         $message = Session::flash();
         $comments= new CommentsManager();
         $comments->deleteComments($id);

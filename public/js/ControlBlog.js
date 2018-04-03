@@ -1,7 +1,7 @@
 var deleted = $(".delete ");
 deleted .on("click", function (event) {
 
-    var answer= confirm("Voulez vous supprimez?");
+    var answer= confirm("Voulez-vous supprimez?");
     if (!answer){
         event.preventDefault();
     }

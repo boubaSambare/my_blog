@@ -4,7 +4,7 @@
             <div class="card m-auto col-12" style="width: 18rem;">
                 <img class="card-img-top" src="<?=WEB?>medias/home-alaska.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h2 class="card-title align-items-center">Bienvenu Dans l'admistration</h2>
+                    <h2 class="card-title align-items-center">Bienvenue Dans l'admistration</h2>
                 </div>
             </div>
         </div>

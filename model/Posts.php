@@ -74,8 +74,8 @@ class Posts
      */
     public function setPosts_date($postsDate)
 	{
-        setlocale(LC_ALL, 'fra');
-	    $time = strtotime($postsDate);
+        setlocale(LC_TIME, "FR");
+        $time = strtotime($postsDate);
 	    $format = strftime( "%A %e %B %Y",$time);
 		$this->_postsDate =  $format;
 	}
