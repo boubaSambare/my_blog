@@ -21,7 +21,7 @@ class CommentsManager extends Dbase
 
     public function readCommentsByPost($postsId)
     {
-        $query = $this->bd->prepare("SELECT * FROM comments WHERE comments_posts_ID= :comments_posts_ID");
+        $query = $this->bd->prepare("SELECT * FROM comments WHERE comments_posts_ID= :comments_posts_ID ORDER BY comments_ID  DESC");
         $parameters = array(':comments_posts_ID' => $postsId);
         $query->execute($parameters);
         $comments = array();
@@ -70,7 +70,7 @@ class CommentsManager extends Dbase
 
     public function readCommentsSignal()
     {
-        $query = $this->bd->prepare("SELECT * FROM comments WHERE comments_signal = 'signaled'");
+        $query = $this->bd->prepare("SELECT * FROM comments WHERE comments_signal = 'signaled' ");
 
         $query->execute();
 
