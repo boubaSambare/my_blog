@@ -12,6 +12,8 @@
 
     <!-- Bootstrap core CSS -->
     <link type="text/css" href="<?= WEB ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="<?=WEB?>medias/fav/favicon-32x32.png">
     <!-- tinymce-->
     <script src="<?=WEB?>tinymce/tinymce.min.js "></script>
 
@@ -25,19 +27,22 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Jean Forteroche</a>
+        <a class="navbar-brand" href="<?= HOST?>">Jean Forteroche</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?= HOST?>"> Accueil
-                        <span class="sr-only">(current)</span>
-                    </a>
+                    <?php if (!empty($homePage) ) {  echo $homePage; }else{ $homePage = null;} ?>
                 </li>
-                <li class="nav-item">
+
+                <li class="nav-item active">
                     <?php if (!empty($logout) ) {  echo $logout; }else{ $logout = null;} ?>
+                </li>
+
+                <li class="nav-item active">
+                    <?php  if ( !empty($adminPage) AND !isset($_SESSION['logins']) ) {  echo $adminPage; }else{ $adminPage = null;} ?>
                 </li>
 
             </ul>

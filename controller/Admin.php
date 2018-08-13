@@ -22,7 +22,8 @@ class Admin
             Session::setFlash("Veillez vous connecter s'il vous plait","alert-danger");
             $message = Session::flash();
             $view = new View("login");
-            $view->render(array("message"=>$message));
+            $homePage = View::HOMEPAGE;
+            $view->render(array("message"=>$message,"homePage"=>$homePage));
             die();
         }
     }
@@ -92,8 +93,9 @@ class Admin
         extract($params);
         $post = new PostsManager();
         $postt=$post->readById($id);
+        $adminPage =View::ADMINPAGE;
         $view= new View("admin/edit_post");
-        $view->render(array("postt"=>$postt,));
+        $view->render(array("postt"=>$postt,"adminPage"=>$adminPage));
     }
 
     public function postUpdate()

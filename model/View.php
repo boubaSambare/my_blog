@@ -11,6 +11,11 @@ class View
     protected $template;
     const DECONEXTION =  '<a class="nav-link" href="'.HOST.'logout.html">Déconnexion</a>';
     const CONEXTION =  '<a class="nav-link" href="'.HOST.'conextion.html">Connexion</a>';
+    const ADMINPAGE =  '<a class="nav-link" href="'.HOST.'admin.html">Admistration</a>';
+    const HOMEPAGE =  ' <a class="nav-link" href="'.HOST.'">
+                            Accueil
+                            <span class="sr-only">(current)</span>
+                        </a>';
 
     /**
      * View constructor.

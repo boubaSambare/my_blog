@@ -17,6 +17,10 @@ class Front
         $this->postsModel = new PostsManager();
     }
 
+    /**
+     * @param $params
+     * home page controller
+     */
 
     public function homeFront($params)
     {
@@ -24,8 +28,9 @@ class Front
         $postts=$post->readAllPosts();
         //var_dump($postts);
         $logout = View::CONEXTION;
+        $adminPage= View::ADMINPAGE;
         $view = new View("readPost");
-        $view->render(array("postts"=>$postts,"logout"=>$logout));
+        $view->render(array("postts"=>$postts,"logout"=>$logout,"adminPage"=>$adminPage));
 
     }
 
@@ -113,8 +118,16 @@ class Front
 
     public function conextion()
     {
-        $view = new View("login");
-        $view->render();
+
+        if (!isset($_SESSION['logins'])) {
+            $view = new View("login");
+            $homePage = View::HOMEPAGE;
+            $view->render(array("homePage" => $homePage));
+        }else{
+            $view = new View("admin/posts");
+            $homePage = View::HOMEPAGE;
+            $view->render(array("homePage" => $homePage));
+        }
     }
 
 
